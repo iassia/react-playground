@@ -1,16 +1,4 @@
 function Card() {
-  const data = {
-    teste: 10,
-    bla: 'teste',
-  }
-
-  const data2 = {
-    teste: 10,
-    bla: 'teste',
-  }
-
-  console.log({ data, data2 })
-
   return (
     <div className='flip-card'>
       <div className='flip-card-inner'>
