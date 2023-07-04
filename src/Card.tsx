@@ -1,10 +1,17 @@
+import styled from 'styled-components'
+
+const Title = styled.h1`
+  font-size: 1.5em;
+  color: #bf4f74;
+`
+
 function Card() {
   return (
     <div className='flip-card'>
       <div className='flip-card-inner'>
         <div className='flip-card-front'></div>
         <div className='flip-card-back'>
-          <h1>John Doe</h1>
+          <Title>John Doe</Title>
           <p>Architect & Engineer</p>
           <p>We love that guy</p>
         </div>
