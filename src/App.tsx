@@ -2,9 +2,7 @@ import './App.css'
 import Card from './Card.tsx'
 
 function App() {
-  return (
-    <Card />
-  )
+  return <Card />
 }
 
 export default App
