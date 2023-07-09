@@ -40,7 +40,7 @@ const FlipCardBodyBack = styled(FlipCardBody)`
   transform: rotateY(180deg);
 `
 
-function Card() {
+function CreditCard() {
   return (
     <FlipCard>
       <FlipCardInner>
@@ -51,4 +51,4 @@ function Card() {
   )
 }
 
-export default Card
+export default CreditCard
