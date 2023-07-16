@@ -1,4 +1,4 @@
-import CreditCard from './CreditCard.tsx'
+import CreditCard from './components/credit-card/CreditCard.tsx'
 
 function App() {
   return (
