@@ -1,12 +1,17 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-const FlipCardInner = styled.div`
+const FlipCardInner = styled.div<{ front: boolean }>`
   position: relative;
   width: 100%;
   height: 100%;
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
+  ${(props) =>
+    props.front &&
+    css`
+      transform: rotateY(180deg);
+    `};
 `
 
 const FlipCard = styled.div`
@@ -14,10 +19,6 @@ const FlipCard = styled.div`
   width: 300px;
   height: 200px;
   perspective: 1000px;
-
-  &:hover ${FlipCardInner} {
-    transform: rotateY(180deg);
-  }
 `
 
 const FlipCardBody = styled.div`
@@ -30,7 +31,7 @@ const FlipCardBody = styled.div`
 `
 
 const FlipCardBodyFront = styled(FlipCardBody)`
-  background-color: #bbb;
+  background-color: red;
   color: black;
 `
 
@@ -40,10 +41,14 @@ const FlipCardBodyBack = styled(FlipCardBody)`
   transform: rotateY(180deg);
 `
 
-function CreditCard() {
+type CreditCardProps = {
+  front: boolean
+}
+
+const CreditCard = ({ front }: CreditCardProps) => {
   return (
     <FlipCard>
-      <FlipCardInner>
+      <FlipCardInner front={front}>
         <FlipCardBodyFront></FlipCardBodyFront>
         <FlipCardBodyBack></FlipCardBodyBack>
       </FlipCardInner>
