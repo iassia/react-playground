@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components'
 
-const FlipCardInner = styled.div<{ front: boolean }>`
+enum CardFace {
+  FRONT,
+  BACK,
+}
+
+const FlipCardInner = styled.div<{ face: CardFace }>`
   position: relative;
   width: 100%;
   height: 100%;
@@ -8,7 +13,7 @@ const FlipCardInner = styled.div<{ front: boolean }>`
   transition: transform 0.6s;
   transform-style: preserve-3d;
   ${(props) =>
-    props.front &&
+    props.face === CardFace.FRONT &&
     css`
       transform: rotateY(180deg);
     `};
@@ -42,13 +47,13 @@ const FlipCardBodyBack = styled(FlipCardBody)`
 `
 
 type CreditCardProps = {
-  front: boolean
+  face: CardFace
 }
 
-const CreditCard = ({ front }: CreditCardProps) => {
+const CreditCard = ({ face }: CreditCardProps) => {
   return (
     <FlipCard>
-      <FlipCardInner front={front}>
+      <FlipCardInner face={face}>
         <FlipCardBodyFront></FlipCardBodyFront>
         <FlipCardBodyBack></FlipCardBodyBack>
       </FlipCardInner>
