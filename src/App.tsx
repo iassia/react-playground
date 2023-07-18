@@ -8,6 +8,7 @@ enum CardFace {
 
 function App() {
   const [cvv, setCvv] = useState('')
+  const [number, setNumber] = useState('')
   const [toggle, setToggle] = useState(false)
   const cardFace: CardFace = toggle ? CardFace.FRONT : CardFace.BACK
 
@@ -15,9 +16,14 @@ function App() {
     setCvv(event.target.value)
   }
 
+  const handleNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setNumber(event.target.value)
+  }
+
   return (
     <div>
-      <CreditCard cvv={cvv} face={cardFace} />
+      <CreditCard number={number} cvv={cvv} face={cardFace} />
+      <input onChange={handleNumber} value={number} />
       <input
         onFocus={() => setToggle(true)}
         onBlur={() => setToggle(false)}
