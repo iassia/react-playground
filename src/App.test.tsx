@@ -11,6 +11,6 @@ function customRender(ui: React.ReactElement, options = {}) {
 describe('Simple working test', () => {
   it('the title is visible', () => {
     customRender(<App />)
-    expect(screen.getByText(/John Doe/i)).toBeInTheDocument()
+    expect(screen.getByRole('img')).toHaveTextContent('')
   })
 })

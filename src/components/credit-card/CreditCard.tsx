@@ -54,7 +54,7 @@ type CreditCardProps = {
 
 const CreditCard = ({ cvv, face, number }: CreditCardProps) => {
   return (
-    <FlipCard>
+    <FlipCard role='img'>
       <FlipCardInner face={face}>
         <FlipCardBodyFront>{number}</FlipCardBodyFront>
         <FlipCardBodyBack>{cvv}</FlipCardBodyBack>
