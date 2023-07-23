@@ -13,7 +13,7 @@ const FlipCardInner = styled.div<{ face: CardFace }>`
   transition: transform 0.6s;
   transform-style: preserve-3d;
   ${(props) =>
-    props.face === CardFace.FRONT &&
+    props.face === CardFace.BACK &&
     css`
       transform: rotateY(180deg);
     `};

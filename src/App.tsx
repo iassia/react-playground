@@ -19,7 +19,7 @@ function App() {
   const [toggle, setToggle] = useState(false)
 
   const methods: Methods = { setCvv, setNumber, setName, setValidThru }
-  const cardFace: CardFace = toggle ? CardFace.FRONT : CardFace.BACK
+  const cardFace: CardFace = toggle ? CardFace.BACK : CardFace.FRONT
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     methods[`set${kebabToPascalCase(event.target.name)}`](event.target.value)
