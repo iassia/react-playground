@@ -1,5 +1,6 @@
 import CreditCard from './components/credit-card/CreditCard.tsx'
 import { useState } from 'react'
+import { kebabToPascalCase } from './utils/converter.ts'
 
 enum CardFace {
   FRONT,
@@ -21,11 +22,7 @@ function App() {
   const cardFace: CardFace = toggle ? CardFace.FRONT : CardFace.BACK
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const inputName = event.target.name
-      .split('-')
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join('')
-    methods[`set${inputName}`](event.target.value)
+    methods[`set${kebabToPascalCase(event.target.name)}`](event.target.value)
   }
 
   const inputs = [
