@@ -1,11 +1,20 @@
 import styled, { css } from 'styled-components'
+import FrontFace from './FrontFace.tsx'
+import BackFace from './BackFace.tsx'
 
 enum CardFace {
   FRONT,
   BACK,
 }
 
-const FlipCardInner = styled.div<{ face: CardFace }>`
+const Card = styled.div`
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+`
+
+const CardBody = styled.div<{ face: CardFace }>`
   position: relative;
   width: 100%;
   height: 100%;
@@ -19,34 +28,7 @@ const FlipCardInner = styled.div<{ face: CardFace }>`
     `};
 `
 
-const FlipCard = styled.div`
-  background-color: transparent;
-  width: 300px;
-  height: 200px;
-  perspective: 1000px;
-`
-
-const FlipCardBody = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 10px;
-`
-
-const FlipCardBodyFront = styled(FlipCardBody)`
-  background-color: red;
-  color: black;
-`
-
-const FlipCardBodyBack = styled(FlipCardBody)`
-  background-color: #2980b9;
-  color: white;
-  transform: rotateY(180deg);
-`
-
-type CreditCardProps = {
+interface CreditCardProps {
   cvv: string
   face: CardFace
   name: string
@@ -62,18 +44,12 @@ const CreditCard = ({
   validThru,
 }: CreditCardProps) => {
   return (
-    <FlipCard role='img' aria-label='Credit Card'>
-      <FlipCardInner aria-hidden='true' face={face}>
-        <FlipCardBodyFront>
-          {number}
-          <br />
-          {name}
-          <br />
-          {validThru}
-        </FlipCardBodyFront>
-        <FlipCardBodyBack>{cvv}</FlipCardBodyBack>
-      </FlipCardInner>
-    </FlipCard>
+    <Card role='img' aria-label='Credit Card'>
+      <CardBody aria-hidden='true' face={face}>
+        <FrontFace number={number} name={name} validThru={validThru} />
+        <BackFace cvv={cvv} />
+      </CardBody>
+    </Card>
   )
 }
 
