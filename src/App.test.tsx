@@ -1,16 +1,9 @@
 import App from './App'
 import { screen, render } from '@testing-library/react'
 
-function customRender(ui: React.ReactElement, options = {}) {
-  return render(ui, {
-    wrapper: ({ children }) => children,
-    ...options,
-  })
-}
-
-describe('Simple working test', () => {
-  it('the title is visible', () => {
-    customRender(<App />)
-    expect(screen.getByRole('img')).toHaveTextContent('')
+describe('App', () => {
+  it('renders the credit card', () => {
+    render(<App />)
+    expect(screen.getByRole('img')).toHaveAccessibleName('Credit Card')
   })
 })
