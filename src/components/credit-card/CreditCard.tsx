@@ -49,14 +49,28 @@ const FlipCardBodyBack = styled(FlipCardBody)`
 type CreditCardProps = {
   cvv: string
   face: CardFace
+  name: string
   number: string
+  validThru: string
 }
 
-const CreditCard = ({ cvv, face, number }: CreditCardProps) => {
+const CreditCard = ({
+  cvv,
+  face,
+  name,
+  number,
+  validThru,
+}: CreditCardProps) => {
   return (
-    <FlipCard role='img'>
-      <FlipCardInner face={face}>
-        <FlipCardBodyFront>{number}</FlipCardBodyFront>
+    <FlipCard role='img' aria-label='Credit Card'>
+      <FlipCardInner aria-hidden='true' face={face}>
+        <FlipCardBodyFront>
+          {number}
+          <br />
+          {name}
+          <br />
+          {validThru}
+        </FlipCardBodyFront>
         <FlipCardBodyBack>{cvv}</FlipCardBodyBack>
       </FlipCardInner>
     </FlipCard>
