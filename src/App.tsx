@@ -6,7 +6,7 @@ enum CardFace {
   BACK,
 }
 
-interface Methods {
+type Methods = {
   [key: string]: React.Dispatch<React.SetStateAction<string>>
 }
 
@@ -15,8 +15,9 @@ function App() {
   const [number, setNumber] = useState('')
   const [name, setName] = useState('')
   const [validThru, setValidThru] = useState('')
-  const methods: Methods = { setCvv, setNumber, setName, setValidThru }
   const [toggle, setToggle] = useState(false)
+
+  const methods: Methods = { setCvv, setNumber, setName, setValidThru }
   const cardFace: CardFace = toggle ? CardFace.FRONT : CardFace.BACK
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,6 +28,31 @@ function App() {
     methods[`set${inputName}`](event.target.value)
   }
 
+  const inputs = [
+    {
+      name: 'number',
+      type: 'number',
+      value: number,
+    },
+    {
+      name: 'name',
+      type: 'text',
+      value: name,
+    },
+    {
+      name: 'valid-thru',
+      type: 'text',
+      value: validThru,
+    },
+    {
+      name: 'cvv',
+      type: 'text',
+      value: cvv,
+      onFocus: () => setToggle(true),
+      onBlur: () => setToggle(false),
+    },
+  ]
+
   return (
     <div>
       <CreditCard
@@ -36,27 +62,19 @@ function App() {
         validThru={validThru}
         face={cardFace}
       />
-      <input
-        type='number'
-        name='number'
-        onChange={handleInput}
-        value={number}
-      />
-      <input type='text' name='name' onChange={handleInput} value={name} />
-      <input
-        type='text'
-        name='valid-thru'
-        onChange={handleInput}
-        value={validThru}
-      />
-      <input
-        type='number'
-        name='cvv'
-        onFocus={() => setToggle(true)}
-        onBlur={() => setToggle(false)}
-        onChange={handleInput}
-        value={cvv}
-      />
+      {inputs.map((input) => {
+        return (
+          <input
+            key={input.name}
+            type={input.type}
+            name={input.name}
+            value={input.value}
+            onChange={handleInput}
+            onFocus={input.onFocus}
+            onBlur={input.onBlur}
+          />
+        )
+      })}
     </div>
   )
 }
