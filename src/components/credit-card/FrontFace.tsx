@@ -4,31 +4,38 @@ import CardFace from './CardFace.tsx'
 const CardFront = styled(CardFace)`
   background-color: rgb(24, 75, 108);
   font-weight: bold;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 30% 30% 40%;
+  padding: 10%;
+  box-sizing: border-box;
+  text-align: left;
 `
 
-const Number = styled.span`
-  width: 100%;
-  display: inline-block;
+const LogoArea = styled.div`
+  grid-column: 1 / span 2;
+`
+
+const Number = styled.div`
   font-size: 1.4rem;
-  border: #f00 1px solid;
+  grid-column: 1 / span 2;
 `
 
-const Name = styled.span`
+const Name = styled.div`
   font-size: 1.1rem;
-  display: inline-block;
-  flex: 1 60%;
-  border: #f00 1px solid;
+  grid-column: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 
-const ValidThru = styled.span`
+const ValidThru = styled.div`
   font-size: 1.1rem;
-  display: inline-block;
-  flex: 1 30%;
-  border: #f00 1px solid;
+  grid-column: 2;
+  text-align: center;
+
+  & > span {
+    font-size: 0.6rem;
+  }
 `
 
 interface CreditCardProps {
@@ -40,6 +47,7 @@ interface CreditCardProps {
 const FrontFace = ({ name, number, validThru }: CreditCardProps) => {
   return (
     <CardFront>
+      <LogoArea />
       <Number>{number}</Number>
       <Name>{name}</Name>
       <ValidThru>
