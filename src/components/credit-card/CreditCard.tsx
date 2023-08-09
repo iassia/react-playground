@@ -1,11 +1,7 @@
 import styled, { css } from 'styled-components'
 import FrontFace from './FrontFace.tsx'
 import BackFace from './BackFace.tsx'
-
-enum CardFace {
-  FRONT,
-  BACK,
-}
+import { CardFace } from '../../utils/enums.ts'
 
 const Card = styled.div`
   background-color: transparent;

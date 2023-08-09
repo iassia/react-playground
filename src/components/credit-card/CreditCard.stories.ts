@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { CardFace } from '../../utils/enums.ts'
 
 import CreditCard from './CreditCard'
 
@@ -13,11 +14,6 @@ const meta = {
 
 export default meta
 type Story = StoryObj<typeof meta>
-
-enum CardFace {
-  FRONT,
-  BACK,
-}
 
 const commonArgs = {
   cvv: '331',
