@@ -6,8 +6,8 @@ const CardFront = styled(CardFace)`
   font-weight: bold;
   display: grid;
   grid-template-columns: 60% 40%;
-  grid-template-rows: 30% 30% 40%;
-  padding: 10%;
+  grid-template-rows: 50% 20% 30%;
+  padding: 5%;
   box-sizing: border-box;
   text-align: left;
 `
@@ -25,6 +25,7 @@ const Name = styled.div`
   font-size: 1.1rem;
   grid-column: 1;
   overflow: hidden;
+  text-transform: uppercase;
   text-overflow: ellipsis;
 `
 
