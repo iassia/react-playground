@@ -7,6 +7,24 @@ type Methods = {
   [key: string]: React.Dispatch<React.SetStateAction<string>>
 }
 
+const formatNumber = (number: string): string => {
+  return (number.replace(/[^0-9]/g, '').match(/.{1,4}/g) || []).join(' ')
+}
+
+const formatValidThru = (validThru: string): string => {
+  return (validThru.replace(/[^0-9]/g, '').match(/.{1,2}/g) || []).join('/')
+}
+
+const formatCvv = (cvv: string): string => {
+  return cvv.replace(/[^0-9]/g, '')
+}
+
+const formatters = {
+  cvv: formatCvv,
+  number: formatNumber,
+  'valid-thru': formatValidThru,
+}
+
 function App() {
   const [cvv, setCvv] = useState('')
   const [number, setNumber] = useState('')
@@ -18,29 +36,32 @@ function App() {
   const cardFace: CardFace = toggle ? CardFace.BACK : CardFace.FRONT
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-    methods[`set${kebabToPascalCase(event.target.name)}`](event.target.value)
+    const { name, value } = event.target
+    const formattedValue =
+      formatters[name as keyof typeof formatters]?.(value) ?? value
+    methods[`set${kebabToPascalCase(name)}`](formattedValue)
   }
 
   const inputs = [
     {
       name: 'number',
-      type: 'number',
       value: number,
+      maxLength: 22,
     },
     {
       name: 'name',
-      type: 'text',
       value: name,
     },
     {
       name: 'valid-thru',
-      type: 'text',
       value: validThru,
+      maxLength: 5,
     },
     {
       name: 'cvv',
-      type: 'text',
+      type: 'number',
       value: cvv,
+      maxLength: 4,
       onFocus: () => setToggle(true),
       onBlur: () => setToggle(false),
     },
@@ -59,9 +80,10 @@ function App() {
         return (
           <input
             key={input.name}
-            type={input.type}
+            type='text'
             name={input.name}
             value={input.value}
+            maxLength={input.maxLength}
             onChange={handleInput}
             onFocus={input.onFocus}
             onBlur={input.onBlur}
