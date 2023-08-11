@@ -9,7 +9,7 @@ type Methods = {
 
 const formatNumber = (number: string): string => {
   const formattedNumber = number.replace(/[^0-9]/g, '').match(/.{1,4}/g) || []
-  if (formattedNumber.length === 5)
+  if (formattedNumber.length > 4)
     formattedNumber.splice(-2, 2, formattedNumber.slice(-2).join(''))
   return formattedNumber.join(' ')
 }
