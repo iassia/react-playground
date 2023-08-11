@@ -15,8 +15,10 @@ const Stripe = styled.div`
 
 const Signature = styled.div`
   width: 60%;
+  height: 30px;
+  line-height: 30px;
   margin: 10px 0 0 10px;
-  padding: 5px;
+  padding: 0 5px;
   text-align: right;
   color: #333;
   font-weight: bold;

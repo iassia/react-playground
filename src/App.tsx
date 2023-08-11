@@ -8,7 +8,10 @@ type Methods = {
 }
 
 const formatNumber = (number: string): string => {
-  return (number.replace(/[^0-9]/g, '').match(/.{1,4}/g) || []).join(' ')
+  const formattedNumber = number.replace(/[^0-9]/g, '').match(/.{1,4}/g) || []
+  if (formattedNumber.length === 5)
+    formattedNumber.splice(-2, 2, formattedNumber.slice(-2).join(''))
+  return formattedNumber.join(' ')
 }
 
 const formatValidThru = (validThru: string): string => {

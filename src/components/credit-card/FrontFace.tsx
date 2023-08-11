@@ -17,7 +17,7 @@ const LogoArea = styled.div`
 `
 
 const Number = styled.div`
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   grid-column: 1 / span 2;
 `
 
