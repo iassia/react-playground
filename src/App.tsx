@@ -85,6 +85,7 @@ function App() {
             key={input.name}
             type='text'
             name={input.name}
+            placeholder={input.name}
             value={input.value}
             maxLength={input.maxLength}
             onChange={handleInput}
