@@ -23,12 +23,12 @@ const Signature = styled.div`
   color: #333;
   font-weight: bold;
   background: repeating-linear-gradient(
-    0.1deg,
-    #fff 20%,
-    #fff 40%,
-    #fea 40%,
-    #fea 44%,
-    #fff 44%
+    0,
+    #fff 15px,
+    #fff 20px,
+    #fea 20px,
+    #fea 21px,
+    #fff 21px
   );
 `
 

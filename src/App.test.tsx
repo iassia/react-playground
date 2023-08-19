@@ -42,6 +42,7 @@ describe('App', () => {
       fireEvent.change(input, { target: { value: '123456789012345678' } })
       expect(input.value).toBe('1234 5678 9012 345678')
     })
+
     it('presents', () => {
       const input = screen.getByPlaceholderText('number')
       fireEvent.change(input, { target: { value: '123456789012345678' } })
@@ -63,7 +64,7 @@ describe('App', () => {
       expect(screen.getByText('123')).toBeInTheDocument()
     })
 
-    it('presents the name as is', () => {
+    it('presents the name without transformation', () => {
       const input = screen.getByPlaceholderText('name')
       fireEvent.change(input, { target: { value: 'John Doe' } })
       expect(screen.getByText('John Doe')).toBeInTheDocument()
