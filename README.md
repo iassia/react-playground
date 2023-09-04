@@ -1,3 +1,4 @@
+[![Lint, Test and Build](https://github.com/iassia/react-playground/actions/workflows/test-build.yml/badge.svg?branch=main)](https://github.com/iassia/react-playground/actions/workflows/test-build.yml)
 # Playground Repository
 
 This project serves as a validation of the chosen tech stack, configurations, and best practices. It's a simple setup that utilizes modern tools and libraries to create a seamless development experience.
