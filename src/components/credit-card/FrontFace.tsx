@@ -53,7 +53,7 @@ interface CreditCardProps {
   name: string
   number: string
   validThru: string
-  focus: string
+  focus: string | undefined
 }
 
 const FrontFace = ({ name, number, validThru, focus }: CreditCardProps) => {

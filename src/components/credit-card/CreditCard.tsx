@@ -30,7 +30,7 @@ interface CreditCardProps {
   name: string
   number: string
   validThru: string
-  focus: string
+  focus?: string
 }
 
 const CreditCard = ({

@@ -7,6 +7,9 @@ const meta = {
   title: 'CreditCard',
   component: CreditCard,
   tags: ['autodocs'],
+  argTypes: {
+    focus: { control: 'select', options: ['number', 'name', 'valid-thru'] },
+  },
   parameters: {
     layout: 'fullscreen',
   },
