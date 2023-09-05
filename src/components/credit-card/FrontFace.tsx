@@ -3,10 +3,12 @@ import CardFace from './CardFace.tsx'
 
 interface TextProps {
   hasData: boolean
+  focused: boolean
 }
 
 const TextStyle = styled.div<TextProps>`
   opacity: ${(props) => (props.hasData ? 1 : 0.5)};
+  font-weight: ${(props) => (props.focused ? 700 : 400)};
 `
 
 const CardFront = styled(CardFace)`
@@ -51,17 +53,20 @@ interface CreditCardProps {
   name: string
   number: string
   validThru: string
+  focus: string
 }
 
-const FrontFace = ({ name, number, validThru }: CreditCardProps) => {
+const FrontFace = ({ name, number, validThru, focus }: CreditCardProps) => {
   return (
     <CardFront>
       <LogoArea />
-      <Number hasData={Boolean(number)}>
+      <Number hasData={Boolean(number)} focused={focus === 'number'}>
         {number || '•••• •••• •••• ••••'}
       </Number>
-      <Name hasData={Boolean(name)}>{name || 'your name here'}</Name>
-      <ValidThru hasData={Boolean(validThru)}>
+      <Name hasData={Boolean(name)} focused={focus === 'name'}>
+        {name || 'your name here'}
+      </Name>
+      <ValidThru hasData={Boolean(validThru)} focused={focus === 'valid-thru'}>
         <span>valid thru</span>
         <br />
         {validThru || '••/••'}

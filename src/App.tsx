@@ -7,6 +7,15 @@ type Methods = {
   [key: string]: React.Dispatch<React.SetStateAction<string>>
 }
 
+type Input = {
+  name: string
+  value?: string | number
+  maxLength?: number
+  type?: string
+  onFocus?: () => void
+  onBlur?: () => void
+}
+
 const formatNumber = (number: string): string => {
   const formattedNumber = number.replace(/[^0-9]/g, '').match(/.{1,4}/g) || []
   if (formattedNumber.length > 4)
@@ -29,6 +38,7 @@ const formatters = {
 }
 
 function App() {
+  const [focus, setFocus] = useState('')
   const [cvv, setCvv] = useState('')
   const [number, setNumber] = useState('')
   const [name, setName] = useState('')
@@ -45,7 +55,12 @@ function App() {
     methods[`set${kebabToPascalCase(name)}`](formattedValue)
   }
 
-  const inputs = [
+  const setFocusedInput = (input: Input) => {
+    setFocus(input.name)
+    input.onFocus?.()
+  }
+
+  const inputs: Input[] = [
     {
       name: 'number',
       value: number,
@@ -78,6 +93,7 @@ function App() {
         name={name}
         validThru={validThru}
         face={cardFace}
+        focus={focus}
       />
       {inputs.map((input) => {
         return (
@@ -89,7 +105,7 @@ function App() {
             value={input.value}
             maxLength={input.maxLength}
             onChange={handleInput}
-            onFocus={input.onFocus}
+            onFocus={() => setFocusedInput(input)}
             onBlur={input.onBlur}
           />
         )

@@ -30,6 +30,7 @@ interface CreditCardProps {
   name: string
   number: string
   validThru: string
+  focus: string
 }
 
 const CreditCard = ({
@@ -38,11 +39,17 @@ const CreditCard = ({
   name,
   number,
   validThru,
+  focus,
 }: CreditCardProps) => {
   return (
     <Card role='img' aria-label='Credit Card'>
       <CardBody aria-hidden='true' face={face}>
-        <FrontFace number={number} name={name} validThru={validThru} />
+        <FrontFace
+          number={number}
+          name={name}
+          validThru={validThru}
+          focus={focus}
+        />
         <BackFace cvv={cvv} />
       </CardBody>
     </Card>
