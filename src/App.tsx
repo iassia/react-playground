@@ -11,7 +11,6 @@ type Input = {
   name: string
   value?: string | number
   maxLength?: number
-  type?: string
   placeholder?: string
   onFocus?: () => void
   onBlur?: () => void
@@ -81,7 +80,6 @@ function App() {
     },
     {
       name: 'cvv',
-      type: 'number',
       value: cvv,
       maxLength: 4,
       placeholder: 'CVV',
