@@ -12,6 +12,7 @@ type Input = {
   value?: string | number
   maxLength?: number
   type?: string
+  placeholder?: string
   onFocus?: () => void
   onBlur?: () => void
 }
@@ -65,21 +66,25 @@ function App() {
       name: 'number',
       value: number,
       maxLength: 22,
+      placeholder: 'Number',
     },
     {
       name: 'name',
       value: name,
+      placeholder: 'Name',
     },
     {
       name: 'valid-thru',
       value: validThru,
       maxLength: 5,
+      placeholder: 'Valid Thru',
     },
     {
       name: 'cvv',
       type: 'number',
       value: cvv,
       maxLength: 4,
+      placeholder: 'CVV',
       onFocus: () => setToggle(true),
       onBlur: () => setToggle(false),
     },
@@ -101,7 +106,7 @@ function App() {
             key={input.name}
             type='text'
             name={input.name}
-            placeholder={input.name}
+            placeholder={input.placeholder}
             value={input.value}
             maxLength={input.maxLength}
             onChange={handleInput}
