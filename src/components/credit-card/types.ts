@@ -3,6 +3,12 @@ export enum CardFace {
   BACK = 'BACK',
 }
 
+export enum FrontFields {
+  NAME = 'name',
+  NUMBER = 'number',
+  VALID_THRU = 'valid-thru',
+}
+
 export interface FrontFaceProps {
   /** card owner name */
   name: string
@@ -11,7 +17,7 @@ export interface FrontFaceProps {
   /** valid thru date mm/yy */
   validThru: string
   /** which front face is visible */
-  focus?: string
+  focus?: FrontFields
 }
 
 export interface BackFaceProps {

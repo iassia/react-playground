@@ -1,9 +1,11 @@
 import FrontFace from './FrontFace'
+import { FrontFields } from './types.ts'
+
 import { screen, render } from '@testing-library/react'
 
 describe('FrontFace', () => {
   it('presents dimmed placeholder texts', () => {
-    render(<FrontFace name='' number='' validThru='' focus='' />)
+    render(<FrontFace name='' number='' validThru='' />)
 
     expect(
       getComputedStyle(screen.getByText('•••• •••• •••• ••••')).opacity,
@@ -20,7 +22,6 @@ describe('FrontFace', () => {
         name='John Doe'
         number='1234 5678 9012 3456'
         validThru='10/11'
-        focus=''
       />,
     )
 
@@ -32,9 +33,9 @@ describe('FrontFace', () => {
   })
 
   it.each([
-    ['name', '700', '400', '400'],
-    ['number', '400', '700', '400'],
-    ['valid-thru', '400', '400', '700'],
+    [FrontFields.NAME, '700', '400', '400'],
+    [FrontFields.NUMBER, '400', '700', '400'],
+    [FrontFields.VALID_THRU, '400', '400', '700'],
   ])(
     'presents bolder font when focused on %s',
     (focus, nameWeight, numberWeight, validThruWeight) => {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { CardFace } from './types.ts'
+import { CardFace, FrontFields } from './types.ts'
 
 import CreditCard from './CreditCard'
 
@@ -10,7 +10,7 @@ const meta = {
   argTypes: {
     focus: {
       control: 'select',
-      options: ['number', 'name', 'valid-thru'],
+      options: [FrontFields.NUMBER, FrontFields.NAME, FrontFields.VALID_THRU],
     },
   },
   parameters: {
@@ -22,7 +22,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const commonArgs = {
-  focus: 'number',
+  focus: FrontFields.NUMBER,
   cvv: '331',
   name: 'Jane Doe',
   number: '1234 5678 9012 3456',

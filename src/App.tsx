@@ -1,5 +1,5 @@
 import CreditCard from './components/credit-card/CreditCard.tsx'
-import { CardFace } from './components/credit-card/types.ts'
+import { CardFace, FrontFields } from './components/credit-card/types.ts'
 import { useState } from 'react'
 import { kebabToPascalCase } from './utils/converter.ts'
 
@@ -38,7 +38,7 @@ const formatters = {
 }
 
 function App() {
-  const [focus, setFocus] = useState('')
+  const [focus, setFocus] = useState('' as FrontFields)
   const [cvv, setCvv] = useState('')
   const [number, setNumber] = useState('')
   const [name, setName] = useState('')
@@ -56,7 +56,7 @@ function App() {
   }
 
   const setFocusedInput = (input: Input) => {
-    setFocus(input.name)
+    setFocus(input.name as FrontFields)
     input.onFocus?.()
   }
 

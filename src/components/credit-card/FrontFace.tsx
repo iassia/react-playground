@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import CardFace from './CardFace.tsx'
-import { FrontFaceProps } from './types.ts'
+import { FrontFaceProps, FrontFields } from './types.ts'
 
 interface TextProps {
   hasData: boolean
@@ -54,13 +54,16 @@ const FrontFace = ({ name, number, validThru, focus }: FrontFaceProps) => {
   return (
     <CardFront>
       <LogoArea />
-      <Number hasData={Boolean(number)} focused={focus === 'number'}>
+      <Number hasData={Boolean(number)} focused={focus === FrontFields.NUMBER}>
         {number || '•••• •••• •••• ••••'}
       </Number>
-      <Name hasData={Boolean(name)} focused={focus === 'name'}>
+      <Name hasData={Boolean(name)} focused={focus === FrontFields.NAME}>
         {name || 'your name here'}
       </Name>
-      <ValidThru hasData={Boolean(validThru)} focused={focus === 'valid-thru'}>
+      <ValidThru
+        hasData={Boolean(validThru)}
+        focused={focus === FrontFields.VALID_THRU}
+      >
         <span>valid thru</span>
         <br />
         {validThru || '••/••'}
