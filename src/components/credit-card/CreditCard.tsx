@@ -25,11 +25,17 @@ const CardBody = styled.div<{ face: CardFace }>`
 `
 
 interface CreditCardProps {
+  /** card verification value (CVV) */
   cvv: string
+  /** which face of the card is visible */
   face: CardFace
+  /** card owner name */
   name: string
+  /** card number */
   number: string
+  /** valid thru date mm/yy */
   validThru: string
+  /** which front face is visible */
   focus?: string
 }
 

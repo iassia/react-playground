@@ -8,7 +8,10 @@ const meta = {
   component: CreditCard,
   tags: ['autodocs'],
   argTypes: {
-    focus: { control: 'select', options: ['number', 'name', 'valid-thru'] },
+    focus: {
+      control: 'select',
+      options: ['number', 'name', 'valid-thru'],
+    },
   },
   parameters: {
     layout: 'fullscreen',
@@ -19,6 +22,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 const commonArgs = {
+  focus: 'number',
   cvv: '331',
   name: 'Jane Doe',
   number: '1234 5678 9012 3456',
