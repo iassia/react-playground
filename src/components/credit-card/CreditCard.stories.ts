@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { CardFace } from '../../utils/enums.ts'
+import { CardFace } from './types.ts'
 
 import CreditCard from './CreditCard'
 

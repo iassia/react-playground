@@ -1,7 +1,7 @@
 import CreditCard from './components/credit-card/CreditCard.tsx'
+import { CardFace } from './components/credit-card/types.ts'
 import { useState } from 'react'
 import { kebabToPascalCase } from './utils/converter.ts'
-import { CardFace } from './utils/enums.ts'
 
 type Methods = {
   [key: string]: React.Dispatch<React.SetStateAction<string>>

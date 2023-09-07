@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import CardFace from './CardFace.tsx'
+import { BackFaceProps } from './types.ts'
 
 const FlipCardBodyBack = styled(CardFace)`
   background-color: #1b567d;
@@ -32,11 +33,7 @@ const Signature = styled.div`
   );
 `
 
-interface CreditCardProps {
-  cvv: string
-}
-
-const CreditCard = ({ cvv }: CreditCardProps) => {
+const BackFace = ({ cvv }: BackFaceProps) => {
   return (
     <FlipCardBodyBack>
       <Stripe />
@@ -45,4 +42,4 @@ const CreditCard = ({ cvv }: CreditCardProps) => {
   )
 }
 
-export default CreditCard
+export default BackFace

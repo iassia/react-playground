@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import CardFace from './CardFace.tsx'
+import { FrontFaceProps } from './types.ts'
 
 interface TextProps {
   hasData: boolean
@@ -49,14 +50,7 @@ const ValidThru = styled(TextStyle)`
   }
 `
 
-interface CreditCardProps {
-  name: string
-  number: string
-  validThru: string
-  focus: string | undefined
-}
-
-const FrontFace = ({ name, number, validThru, focus }: CreditCardProps) => {
+const FrontFace = ({ name, number, validThru, focus }: FrontFaceProps) => {
   return (
     <CardFront>
       <LogoArea />
