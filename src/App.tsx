@@ -2,6 +2,54 @@ import CreditCard from './components/credit-card/CreditCard.tsx'
 import { CardFace, FrontFields } from './components/credit-card/types.ts'
 import { useState } from 'react'
 import { kebabToPascalCase } from './utils/converter.ts'
+import styled from 'styled-components'
+
+const Container = styled.main`
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-flow: column;
+
+  @media (min-width: 800px) {
+    flex-flow: row nowrap;
+  }
+`
+
+const CardContainer = styled.div`
+  background-color: #3498db;
+  display: flex;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: 800px) {
+    align-items: center;
+    padding: 10% 16px;
+    width: 50%;
+    order: 1;
+  }
+`
+
+const FormContainer = styled.div`
+  padding: 10% 5%;
+`
+
+const BaseInput = styled.input`
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+  margin-bottom: 16px;
+
+  &:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 1px 0 0 #3498db;
+  }
+`
 
 type Methods = {
   [key: string]: React.Dispatch<React.SetStateAction<string>>
@@ -89,31 +137,35 @@ function App() {
   ]
 
   return (
-    <div>
-      <CreditCard
-        number={number}
-        cvv={cvv}
-        name={name}
-        validThru={validThru}
-        face={cardFace}
-        focus={focus}
-      />
-      {inputs.map((input) => {
-        return (
-          <input
-            key={input.name}
-            type='text'
-            name={input.name}
-            placeholder={input.placeholder}
-            value={input.value}
-            maxLength={input.maxLength}
-            onChange={handleInput}
-            onFocus={() => setFocusedInput(input)}
-            onBlur={input.onBlur}
-          />
-        )
-      })}
-    </div>
+    <Container>
+      <CardContainer>
+        <CreditCard
+          number={number}
+          cvv={cvv}
+          name={name}
+          validThru={validThru}
+          face={cardFace}
+          focus={focus}
+        />
+      </CardContainer>
+      <FormContainer>
+        {inputs.map((input) => {
+          return (
+            <BaseInput
+              key={input.name}
+              type='text'
+              name={input.name}
+              placeholder={input.placeholder}
+              value={input.value}
+              maxLength={input.maxLength}
+              onChange={handleInput}
+              onFocus={() => setFocusedInput(input)}
+              onBlur={input.onBlur}
+            />
+          )
+        })}
+      </FormContainer>
+    </Container>
   )
 }
 

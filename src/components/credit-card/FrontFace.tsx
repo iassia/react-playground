@@ -13,7 +13,7 @@ const TextStyle = styled.div<TextProps>`
 `
 
 const CardFront = styled(CardFace)`
-  background-color: rgb(24, 75, 108);
+  background-color: #2c3e50;
   font-weight: bold;
   display: grid;
   grid-template-columns: 60% 40%;
@@ -21,6 +21,7 @@ const CardFront = styled(CardFace)`
   padding: 5%;
   box-sizing: border-box;
   text-align: left;
+  box-shadow: 0 10px 20px rgba(44, 62, 80, 0.3);
 `
 
 const LogoArea = styled.div`

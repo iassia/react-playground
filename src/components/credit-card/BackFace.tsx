@@ -3,8 +3,9 @@ import CardFace from './CardFace.tsx'
 import { BackFaceProps } from './types.ts'
 
 const FlipCardBodyBack = styled(CardFace)`
-  background-color: #1b567d;
+  background-color: #2c3e50;
   transform: rotateY(180deg);
+  box-shadow: 0 10px 20px rgba(44, 62, 80, 0.3);
 `
 
 const Stripe = styled.div`
