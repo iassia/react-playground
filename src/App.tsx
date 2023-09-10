@@ -52,11 +52,11 @@ const BaseInput = styled.input`
   }
 `
 
-type Methods = {
+interface Methods {
   [key: string]: React.Dispatch<React.SetStateAction<string>>
 }
 
-type Input = {
+interface Input {
   name: string
   value?: string | number
   maxLength?: number

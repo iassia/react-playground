@@ -4,26 +4,26 @@ import CreditCard from './CreditCard'
 import { CardFace, FrontFields } from './types.ts'
 
 const meta = {
-  title: 'CreditCard',
-  component: CreditCard,
-  tags: ['autodocs'],
   argTypes: {
     focus: {
       control: 'select',
       options: [FrontFields.NUMBER, FrontFields.NAME, FrontFields.VALID_THRU],
     },
   },
+  component: CreditCard,
   parameters: {
     layout: 'fullscreen',
   },
+  tags: ['autodocs'],
+  title: 'CreditCard',
 } satisfies Meta<typeof CreditCard>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 const commonArgs = {
-  focus: FrontFields.NUMBER,
   cvv: '331',
+  focus: FrontFields.NUMBER,
   name: 'Jane Doe',
   number: '1234 5678 9012 3456',
   validThru: '12/34',

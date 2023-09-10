@@ -16,6 +16,8 @@
   },
   "plugins": ["import", "prettier"],
   "rules": {
+    "@typescript-eslint/array-type": ["error", { "default": "array" }],
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
     "import/order": [
       "error",
       {

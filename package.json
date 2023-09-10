@@ -8,7 +8,7 @@
     "build-storybook": "storybook build -o dist/storybook",
     "coverage": "vitest run --coverage",
     "dev": "vite",
-    "lint": "eslint src --ext ts,tsx",
+    "lint": "tsc && eslint src --ext ts,tsx",
     "preview": "vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",

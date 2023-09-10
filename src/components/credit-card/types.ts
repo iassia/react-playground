@@ -1,6 +1,11 @@
 export enum CardFace {
-  FRONT = 'FRONT',
   BACK = 'BACK',
+  FRONT = 'FRONT',
+}
+
+export interface BackFaceProps {
+  /** card verification value (CVV) */
+  cvv: string
 }
 
 export enum FrontFields {
@@ -10,22 +15,16 @@ export enum FrontFields {
 }
 
 export interface FrontFaceProps {
+  /** which front face is visible */
+  focus?: FrontFields
   /** card owner name */
   name: string
   /** card number */
   number: string
   /** valid thru date mm/yy */
   validThru: string
-  /** which front face is visible */
-  focus?: FrontFields
 }
-
-export interface BackFaceProps {
-  /** card verification value (CVV) */
-  cvv: string
-}
-
-export interface CreditCardProps extends FrontFaceProps, BackFaceProps {
+export interface CreditCardProps extends BackFaceProps, FrontFaceProps {
   /** which face of the card is visible */
   face: CardFace
 }
