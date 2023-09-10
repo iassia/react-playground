@@ -1,15 +1,16 @@
 [![Lint, Test and Build](https://github.com/iassia/react-playground/actions/workflows/test-build.yml/badge.svg?branch=main)](https://github.com/iassia/react-playground/actions/workflows/test-build.yml)
+[![codecov](https://codecov.io/gh/iassia/react-playground/graph/badge.svg?token=7DGTYGKFVT)](https://codecov.io/gh/iassia/react-playground)
 # Playground Repository
 
 This project serves as a validation of the chosen tech stack, configurations, and best practices. It's a simple setup that utilizes modern tools and libraries to create a seamless development experience.
 
 ## Tech Stack
 
-- [React](https://reactjs.org/): A popular JavaScript library for building user interfaces.
-- [Vite](https://vitejs.dev/): A fast build tool and development server that optimizes the frontend development experience.
-- [SWC](https://swc.rs/): A super-fast JavaScript/TypeScript compiler replacing Babel.
-- [Storybook](https://storybook.js.org/): A UI component development environment for testing and showcasing components in isolation.
-- [Styled Components](https://styled-components.com/): A library for styling React components with tagged template literals.
+- [React](https://reactjs.org/): JavaScript library for building user interfaces.
+- [Vite](https://vitejs.dev/): Build tool and development server that optimizes the frontend development experience.
+- [SWC](https://swc.rs/): JavaScript/TypeScript compiler replacing Babel.
+- [Storybook](https://storybook.js.org/): UI component development environment for testing and showcasing components in isolation.
+- [Styled Components](https://styled-components.com/): Library for styling React components with tagged template literals.
 
 ## Additional Choices
 
