@@ -1,8 +1,9 @@
+import { useState } from 'react'
+import styled from 'styled-components'
+
 import CreditCard from './components/credit-card/CreditCard.tsx'
 import { CardFace, FrontFields } from './components/credit-card/types.ts'
-import { useState } from 'react'
 import { kebabToPascalCase } from './utils/converter.ts'
-import styled from 'styled-components'
 
 const Container = styled.main`
   background-color: #fff;

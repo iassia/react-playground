@@ -1,5 +1,6 @@
-import App from './App'
 import { act, screen, render, fireEvent } from '@testing-library/react'
+
+import App from './App'
 
 describe('App', () => {
   beforeEach(() => {

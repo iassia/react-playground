@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { CardFace, FrontFields } from './types.ts'
 
 import CreditCard from './CreditCard'
+import { CardFace, FrontFields } from './types.ts'
 
 const meta = {
   title: 'CreditCard',

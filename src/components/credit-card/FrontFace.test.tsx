@@ -1,7 +1,7 @@
+import { screen, render } from '@testing-library/react'
+
 import FrontFace from './FrontFace'
 import { FrontFields } from './types.ts'
-
-import { screen, render } from '@testing-library/react'
 
 describe('FrontFace', () => {
   it('presents dimmed placeholder texts', () => {

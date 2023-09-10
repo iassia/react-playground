@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
-import FrontFace from './FrontFace.tsx'
+
 import BackFace from './BackFace.tsx'
+import FrontFace from './FrontFace.tsx'
 import { CardFace, CreditCardProps } from './types.ts'
 
 const Card = styled.div`
